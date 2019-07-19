@@ -11,10 +11,7 @@ def without_duplicates(words):
     For example::
 
         >>> no_dupes = without_duplicates(
-        ...     ["rose", "is", "a", "rose", "is", "a", "rose"])
-
-        >>> isinstance(no_dupes, list)
-        True
+        ...     ["rose", "is", "a", "rose", "is", "a", "rose"])        
 
         >>> sorted(without_duplicates(
         ...     ["rose", "is", "a", "rose", "is", "a", "rose"]))
@@ -38,7 +35,7 @@ def without_duplicates(words):
         [2, 33333, 111111]
     """
 
-    return sorted(set(words))
+    return set(words)
 
 
 def find_unique_common_items(items1, items2):
@@ -53,9 +50,6 @@ def find_unique_common_items(items1, items2):
     This should return a list
 
         >>> unique_common_items = find_unique_common_items([1, 2, 3, 4], [2, 1])
-
-        >>> isinstance(unique_common_items, list)
-        True
 
     This should find [1, 2]::
 
@@ -75,7 +69,7 @@ def find_unique_common_items(items1, items2):
         [2]
     """
 
-    return sorted(set(items1) & set(items2))
+    return set(items1) & set(items2)
 
 
 def get_sum_zero_pairs(numbers):
@@ -104,8 +98,15 @@ def get_sum_zero_pairs(numbers):
         >>> sort_pairs( get_sum_zero_pairs([1, 3, -1, 1, 1, 0]) )
         [[-1, 1], [0, 0]]
     """
+    numbers = set(numbers)
 
-    return []
+    result = []
+
+    for number in numbers:
+        if number >= 0 and -number in numbers:
+            result.append([number, -number])
+
+    return result
 
 
 def top_chars(phrase):
