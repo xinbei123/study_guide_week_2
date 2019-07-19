@@ -133,7 +133,35 @@ def top_chars(phrase):
 
     """
 
-    return []
+    char_count = {}
+    most_common_count = 0
+
+    for char in phrase:
+        char_count[char] = char_count.get(char, 0) + 1
+
+        if char == ' ':
+            continue
+
+        if char_count[char] > most_common_count:
+            most_common_count = char_count[char]
+
+
+    most_common = []
+    for char, counter in char_count.items():
+        if counter == most_common_count:
+            most_common.append(char)
+
+    return most_common
+
+
+
+    # return temp_char
+
+
+
+
+
+ 
 
 #####################################################################
 # You can ignore everything below this.
