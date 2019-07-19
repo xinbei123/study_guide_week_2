@@ -38,7 +38,7 @@ def without_duplicates(words):
         [2, 33333, 111111]
     """
 
-    return []
+    return sorted(set(words))
 
 
 def find_unique_common_items(items1, items2):
@@ -75,7 +75,7 @@ def find_unique_common_items(items1, items2):
         [2]
     """
 
-    return []
+    return sorted(set(items1) & set(items2))
 
 
 def get_sum_zero_pairs(numbers):
